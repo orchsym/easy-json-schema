@@ -6,10 +6,6 @@
   const supportType = ['string', 'number', 'array', 'object', 'boolean', 'integer'];
 
   function getType(type) {
-    if (!type) type = 'string';
-    if (supportType.indexOf(type) !== -1) {
-      return type;
-    }
     return typeof type;
   }
 
@@ -20,20 +16,6 @@
     return false;
   }
 
-  function handleSchema(json, schema) {
-    Object.assign(schema, json);
-    if (schema.type === 'object') {
-      delete schema.properties;
-      parse(json.properties, schema);
-    }
-    if (schema.type === 'array') {
-      delete schema.items;
-      schema.items = {};
-      parse(json.items, schema.items)
-    }
-
-  }
-
   function handleArray(arr, schema) {
     schema.type = 'array';
     var props = schema.items = {};
@@ -41,9 +23,6 @@
   }
 
   function handleObject(json, schema) {
-    if (isSchema(json)) {
-      return handleSchema(json, schema)
-    }
     schema.type = 'object';
     schema.required = [];
     var props = schema.properties = {};
