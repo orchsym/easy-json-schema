@@ -12,7 +12,7 @@ console.log(jsonSchema);
 ```
 ## example
 
-### Base 
+### Base
 Input:
 
 ```
