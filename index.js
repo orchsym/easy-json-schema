@@ -5,8 +5,11 @@
 
   const supportType = ['string', 'number', 'array', 'object', 'boolean', 'integer'];
 
-  function getType(type) {
-    return typeof type;
+  function getType(val) {
+    if(val == null){
+        return 'string';
+    }
+    return typeof val;
   }
 
   function isSchema(object) {
@@ -47,6 +50,9 @@
       handleObject(json, schema)
     } else {
       schema.type = getType(json)
+      if(json != null){
+          schema.example = json
+      }
     }
   }
 
