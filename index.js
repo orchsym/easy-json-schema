@@ -50,6 +50,7 @@
       handleObject(json, schema)
     } else {
       schema.type = getType(json)
+      schema.description = '';
       if(json != null){
           schema.example = json
       }

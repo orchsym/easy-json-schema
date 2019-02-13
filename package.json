@@ -1,6 +1,6 @@
 {
   "name": "orchsym-easy-json-schema",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A succinct json-schema language, Convert json into json-schema.",
   "main": "index.js",
   "scripts": {
